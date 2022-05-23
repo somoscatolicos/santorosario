@@ -1,0 +1,246 @@
+<!--
+  ## Introduction
+  In an AMP story, you cannot put an `amp-ad` directly onto the page, instead, all ads are fetched and displayed by the `amp-story-auto-ads` extension.
+
+  For the complete documentation please see our [documentation](https://github.com/ampproject/amphtml/blob/main/extensions/amp-story/amp-story-ads.md) on GitHub.
+-->
+<!doctype html>
+<html ⚡ lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Liturgia de la palabra.">
+  <link rel="canonical" href="https://amp.dev/documentation/examples/advertising-analytics/doubleclick_amp_story_ads/index.html">
+  <link rel="icon" type="image/png"   href="https://i.postimg.cc/Jzc3yWr1/Maria.jpg">
+	<link rel="stylesheet" href="" type="text/css">
+	<link rel="stylesheet" href="" type="text/css">
+  
+  <meta name="viewport" content="width=device-width">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <title>Palabra de Dios.</title>
+
+  <script async custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
+  <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
+  <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+ 
+
+  <!-- ## Setup -->
+  <!--
+    Import the `amp-story-auto-ads` component.
+  -->
+  <script async custom-element="amp-story-auto-ads" src="https://cdn.ampproject.org/v0/amp-story-auto-ads-0.1.js"></script>
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  <style amp-custom>
+    * {
+      box-sizing: border-box;
+    }
+    amp-story * {
+      font-family: 'Helvitica Nueve', sans-serif;
+      color: white;
+    }
+    amp-story-page {
+      background: white;
+    }
+    amp-story h1 {
+      font-size: 46px;
+    }
+    amp-story h2 {
+      font-size: 36px;
+    }
+    amp-story p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .bold {
+      font-weight: bold;
+    }
+    .bottom {
+      align-content: end;
+    }
+    .medium {
+      font-weight: 600;
+    }
+    .first {
+      padding-top: 65px;
+    }
+    .last {
+      padding-bottom: 65px;
+    }
+    .blue {
+      color: #4285F4;
+    }
+    .twenty-px {
+      font-size: 20px;
+    }
+    .center {
+      text-align: center;
+    }
+    .lh30 {
+      line-height: 30px;
+    }
+    .icon {
+      background-image: url('https://amp.dev/static/img/AMP-Brand-White-Icon.svg');
+      background-repeat: no-repeat;
+      background-size: 50px 50px;
+      height: 50px;
+      object-fit: contain;
+      width: 50px;
+    }
+    .byline {
+      letter-spacing: 1.28px;
+      padding-bottom: 58px;
+    }
+    .introducing * {
+      line-height: 42px;
+    }
+    .subtitle-page {
+      padding-top: 80px;
+    }
+    .button {
+      align-items: center;
+      border: 4px solid #FFFFFF;
+      color: #FFFFFF;
+      display: flex;
+      height: 60px;
+      margin: 0 auto;
+      max-width: 240px;
+      text-decoration:none;
+    }
+    .button p {
+      font-size: 20px;
+      width: 100%;
+    }
+    amp-ad[template="image-template"] img,
+    amp-ad[template="video-template"] {
+      object-fit: cover;
+    }
+    ::cue {
+      background-color: rgba(0, 0, 0, 0.75);
+      font-size: 24px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+  <body>
+    <amp-story standalone
+      title="Key Highlights of AMP Conf 2018"
+      publisher="The AMP team"
+      publisher-logo-src="https://amp.dev/static/samples/img/AMP-Brand-White-Icon.svg"
+      poster-portrait-src="https://amp.dev/static/samples/img/overview.jpg">
+      <!-- ## Configuration -->
+      <!-- Include the `amp-story-auto-ads` tag on your page. -->
+      <!-- It's first child should be a `script` tag with a JSON configuration object that contains details for how ads should be fetched and displayed. `ad-attributes` is a map of key-value pairs, which correspond to the attributes of the amp-ad element to be inserted.
+      -->
+
+      <!-- For ads served from DoubleClick one should set `"type": "doubleclick"` and  `"data-slot"`  to the full path of the ad unit with the network code and unit code.` -->
+
+    <amp-story-auto-ads>
+      <script type="application/json">
+        {
+          "ad-attributes": {
+            "type": "doubleclick",
+            "data-slot": "/30497360/a4a/amp_story_dfp_example"
+          }
+        }
+      </script>
+    </amp-story-auto-ads>
+
+      <!-- See the full example below:
+       <div class="abe-story-preview">
+          <amp-iframe media="(min-width: 650px)"
+              src="https://preview.amp.dev/documentation/examples/advertising-analytics/doubleclick_amp_story_ads/index.html"
+              width="440" height="732" sandbox="allow-scripts allow-popups allow-same-origin">
+            <div placeholder></div>
+          </amp-iframe>
+        </div> -->
+      <!-- -->
+
+
+
+
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________
+  
+      <!-- A story consists of one or more pages. Each page is declared by an `amp-story-page` element. Pages are designed by layering videos, images and text. Here we have a page that uses two layers. One layer filling the available space with an image and one text layer that shows a heading. -->
+      <amp-story-page id="page-1">
+        <amp-story-grid-layer template="fill">
+          <amp-img src="https://i.postimg.cc/x80R0hRq/Santo-rosario.jpg"
+                   width="720" height="1280"
+                   layout="responsive">
+          </amp-img>
+        </amp-story-grid-layer>
+        <amp-story-grid-layer template="vertical">
+          <h1></h1>
+          <p></p>
+        </amp-story-grid-layer>
+      </amp-story-page>
+______________________________________________________________________
+
+ <amp-story-page id="background-audio"
+        background-audio="https://padlet-uploads.storage.googleapis.com/1548762845/48878e3ac2d5bb0d8802f34553f8f8fa/Santo_rosario_Misterios_Gloriosos_mi_rcoles_y_domingo.mp3">
+        <amp-story-grid-layer template="thirds">
+        <amp-img width="400" height="750" layout="fill" src="https://i.postimg.cc/c1jns6cw/la-resurrecci-n-de-Cristo.jpg"></amp-img>
+        </amp-story-grid-layer>
+ <amp-story-grid-layer template="vertical" class="bottom">
+          <h2 class="bold"></h2>
+	  <p>
+	  
+	  </p>
+          <p class="last"></p>
+        </amp-story-grid-layer>
+      </amp-story-page>
+_____________________________________________________________________________________________________________________________________________________________________________________
+
+      <amp-story-page id="background-audio"
+        background-audio="https://padlet-uploads.storage.googleapis.com/1548762845/c8e8724d39f4218fc0ef074c3ed9e454/Santo_rosario_Misterios_Gozosos_Lunes_y_S_bado.mp3">
+        <amp-story-grid-layer template="thirds">
+        <amp-img width="400" height="750" layout="fill" src="https://i.postimg.cc/FHPfBR1Y/Misterios-Gozosos.webp"></amp-img>
+        </amp-story-grid-layer>
+ <amp-story-grid-layer template="vertical" class="bottom">
+          <h2 class="bold"></h2>
+	  <p>
+	 
+	  </p>
+          <p class="last"></p>
+        </amp-story-grid-layer>
+      </amp-story-page>
+_________________________________________________________
+
+      <amp-story-page id="background-audio"
+        background-audio="https://padlet-uploads.storage.googleapis.com/1548762845/0ea9b359c69f340b1b63f27e944a99e8/Santo_rosario_Misterios_Dolorosos_martes_y_viernes.mp3">
+        <amp-story-grid-layer template="thirds">
+        <amp-img width="400" height="750" layout="fill" src="https://i.postimg.cc/7YFtTHqT/Misterios-Dolorosos.jpg"></amp-img>
+        </amp-story-grid-layer>
+ <amp-story-grid-layer template="vertical" class="bottom">
+          <h2 class="bold"></h2>
+	  <p>
+	 
+	  </p>
+          <p class="last"></p>
+        </amp-story-grid-layer>
+      </amp-story-page>
+__________________________________________________________________________
+
+      <amp-story-page id="background-audio"
+        background-audio="https://padlet-uploads.storage.googleapis.com/1548762845/1de78679236f1bd4fedf3879087a6058/Misterios_de_Luz_con_wwwmagnificattv.mp3">
+        <amp-story-grid-layer template="thirds">
+        <amp-img width="400" height="750" layout="fill" src="https://i.postimg.cc/sDj76bK0/El-Bautismo-de-Jes-s.jpg"></amp-img>
+        </amp-story-grid-layer>
+ <amp-story-grid-layer template="vertical" class="bottom">
+          <h2 class="bold"></h2>
+	  <p>
+	 
+	  </p>
+          <p class="last"></p>
+        </amp-story-grid-layer>
+      </amp-story-page>
+__________________________________________________________________________
+
+__________________________________________________________________________
+
+__________________________________________________________________________
+     
+
+      <amp-story-bookend src="https://amp.dev/static/samples/json/bookend.json" layout="nodisplay"></amp-story-bookend>
+    </amp-story>
+  </body>
+</html>
